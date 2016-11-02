@@ -2,3 +2,9 @@ What happens when you initialize a repository? Why do you need to do it?
 
 git creates a hidden folder '.git' that contains metadata about repo.
 need to init so that git starts tracking the folder
+
+How is the staging area different from the working directory and the repository? What value do you think it offers?
+
+working directory - untracked changes
+staging area - well defined changes ready to be committed 
+repo - contains all snapshots of changes = commits
