@@ -8,3 +8,37 @@ How is the staging area different from the working directory and the repository?
 working directory - untracked changes
 staging area - well defined changes ready to be committed 
 repo - contains all snapshots of changes = commits
+
+How can you use the staging area to make sure you have one commit per logical change?
+
+keep adding files/changes to staging area until ready to commit a logical change
+
+What are some situations when branches would be helpful in keeping your history organized? How would branches help?
+
+working on new features / bugs. allows context switching between tasks. essential when collaborating with others. 
+
+Note:
+Each commit has a pointer to its parent. HEAD is a pointer to current commit. If a commit is not part of a branch it will get lost. For example checkout some commit (not branch), commit on top of it <- since this commit is not associated with any branch it will get lost = warning: "HEAD in detached state"
+
+How do the diagrams help you visualize the branch structure?
+
+The repo looks like a graph
+
+
+Branches are just labels that refer to commits
+
+When merging 2 branches together, for example merging feature branch into master:
+ - a new commit gets created for the merge, and has parent pointers to commits of both branches.
+ - master branch tip becomes this new commit
+ - when viewing commit log on master, the commits will be interleaved by commit timestamp <- this is what scott doesn't like
+
+What is the result of merging two branches together? Why do we represent it in the diagram the way we do?
+
+new commit is created that points to tip of both branches. this commit becomes tip of one of branches
+
+
+
+What are the pros and cons of Git’s automatic merging vs. always doing merges manually?
+
+git does auto merging when there is absolutely no ambiguity between changes of different commits/people such as 1 person adds a piece of code, another person removes a different piece of code. However if 2 people/commits modify the same code, git leaves it up to the person merging to resolves conflicts manually. 
+Possibly git could do more sophisticated auto merging but could lead to errors, better for human to check.

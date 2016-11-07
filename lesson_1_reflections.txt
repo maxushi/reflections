@@ -24,14 +24,37 @@ files in one commit, while others, like Google Docs, treat each file separately?
 How can you use the commands git log and git diff to view the history of files?
 
     git log --stat
-    git diff commitId1 commitId2
+    git log --graph --oneline branch1 branch2
+    git log -n # <- number of commits to show
 
-    git checkout commitId <- checkout a commit = go to snapshot of all files at this point
+    git diff commitId1 commitId2
+    git diff <- diff between working directory and staging area
+    git diff --staged <- diff between staging area and repo
+
+    git checkout commitId <- checkout a commit in this branch = go to snapshot of all files at this point
+    git checkout branchName <- switch to top commit of branch
+    git checkout -b branchName <- create new branch + switch to it
 
     git init
     git status
 
-    git add 
+    git add <- add changes to staging area
+
+    git branch <- list branches
+    git branch branchName <- creates new branch, but doesn't switch
+    git branch -d branchName <- deletes
+
+    git merge featureBranch <- when on master branch, will merge featureBranch into master
+
+    git show someCommit <- will produce diff based on commit's actual parent, 1) without having to know parent 2) when merging, not obvious what parent is, because commits get interleaved by timestamp
+    
+
+    git pull
+    git push <- pushes differences between local branch and remote branch to remote branch
+    git push -u origin branchName <- push branchName to remote repo called origin (setup before) and start tracking
+
+    git remote -v <- view remote repos
+    git remote add origin https://github.com/maxushi/reflections.git <- add a remote repo to associate with this local repo. 'origin' is a standard name to refer to this remote repo
 
 How might using version control make you more confident to make changes that
 could break something?
